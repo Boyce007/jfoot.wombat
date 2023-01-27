@@ -21,26 +21,50 @@ public class Wombat extends Herbivore {
 
 
     public void turnLeft() {
-        if (super.getDirection() == EAST) {
-            super.setDirection(NORTH);
-        } else if (super.getDirection() == WEST) {
-            super.setDirection(SOUTH);
-        } else if (super.getDirection() == NORTH) {
-            super.setDirection(WEST);
+        if (getDirection() == EAST) {
+            setDirection(NORTH);
+        } else if (getDirection() == WEST) {
+            setDirection(SOUTH);
+        } else if (getDirection() == NORTH) {
+            setDirection(WEST);
         } else {
-            super.setDirection(EAST);
+            setDirection(EAST);
+        }
+    }
+
+    public void turnRight() {
+        if (getDirection() == EAST) {
+            setDirection(SOUTH);
+        } else if(getDirection() == WEST) {
+            setDirection(NORTH);
+        } else if (getDirection() == NORTH) {
+            setDirection(EAST);
+        } else  {
+            setDirection(WEST);
         }
     }
 
 
 
     public void act() {
-        if (super.foundLeaf()) {
-            super.eatLeaf();
-        } else if (super.canMove()) {
-            super.move();
+
+        if (foundLeaf()) {
+            eatLeaf();
+        } else if (canMove()) {
+            move();
+
         } else {
-            turnLeft();
+            if (getDirection() == EAST) {
+                turnLeft();
+                move();
+                turnLeft();
+            } else if (getDirection() == WEST) {
+                turnRight();
+                move();
+                turnRight();
+            }
+
+
         }
     }
 }
