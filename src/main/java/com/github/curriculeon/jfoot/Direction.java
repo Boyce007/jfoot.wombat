@@ -1,6 +1,6 @@
 package com.github.curriculeon.jfoot;
 
-public enum Direction {
+ enum Direction {
     EAST,
     SOUTH,
     WEST,

@@ -32,7 +32,6 @@ public abstract class Herbivore extends Actor {
         Actor leaf = getOneObjectAtOffset(0, 0, Leaf.class);
         return leaf != null;
     }
-
     /**
      * Eat a leaf (if there is one in our cell).
      */
